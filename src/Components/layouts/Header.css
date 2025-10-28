@@ -8,6 +8,10 @@ header{
     display: flex;
 }
 
+header a{
+    text-decoration: none;
+}
+
 header a img{
     filter: invert(1);
     margin-left: 10px;
@@ -22,7 +26,7 @@ header a h1{
 
 header a:hover,
 header a:active{
-    color: #aa63da;
+    color: rgb(129, 78, 0);
 }
 
 header div.login{

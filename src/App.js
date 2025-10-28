@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from "./Components/layouts/Layout.js";
 import Home from "./Components/pages/Home.js";
 import PageNotFound from "./Components/pages/404.js";
@@ -8,9 +9,16 @@ import './App.css';
 
 function App() {
   return (
-    <Layout>
-      <Home />
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/signin' element={<SignIn />} />
+          <Route path='/contact' element={<ContactUs />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
+      </Layout >
+    </BrowserRouter>
   );
 }
 
