@@ -1,17 +1,23 @@
-import Header from './Header.js';
+import Header from "./Header.js";
+import Navbar from "./Navbar.js";
+import Footer from "./Footer.js";
+
+import './Layout.css';
 
 function Layout(props) {
-    // Properties
-    //Hooks
-    //Context
-    //Methods
-    //View
+    // Properties ------------------------
+    // Hooks -----------------------------
+    // Context ---------------------------
+    // Methods ---------------------------
+    // View ------------------------------
     return (
-        <div>
+        <div className="centrepane">
             <Header />
-            <div>
+            <Navbar />
+            <main>
                 {props.children}
-            </div>
+            </main>
+            <Footer />
         </div>
     )
 }

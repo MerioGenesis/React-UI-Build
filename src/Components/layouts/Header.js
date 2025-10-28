@@ -1,3 +1,5 @@
+import './Header.css';
+
 function Header() {
     // Properties
     //Hooks
@@ -6,6 +8,9 @@ function Header() {
     //View
     return (
         <header>
+            <a>
+                <img src="https://icons.iconarchive.com/icons/iconsmind/outline/256/Car-2-icon.png" alt="Logo" />
+            </a>
             <a>
                 <h1>React First Build</h1>
             </a>

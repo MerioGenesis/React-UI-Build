@@ -1,4 +1,4 @@
-import Layout from "./Components/Layout/Layout.js";
+import Layout from "./Components/layouts/Layout.js";
 import Home from "./Components/pages/Home.js";
 import PageNotFound from "./Components/pages/404.js";
 import SignIn from "./Components/pages/SignIn.js";
