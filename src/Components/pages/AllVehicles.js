@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import API from '../api/API.js';
+import Table from '../UI/Table.js';
 import Panel from '../UI/Panel.js';
 import ObjectTable from '../UI/ObjectTable.js';
 
@@ -11,7 +12,7 @@ export default function AllVehicles() {
     const endpoint = `/vcharter/vehicles/`;
 
     // State -------------------------------------
-    const [vehicles, setVehicles] = useState(null);
+    const [vehicles, setVehicles] = useState([]);
     const [loadingMessage, setLoadingMessage] = useState('Loading records...');
 
     // Context -----------------------------------
@@ -31,13 +32,7 @@ export default function AllVehicles() {
         <section>
             <h1>All Vehicles</h1>
             {
-                !vehicles
-                    ? <p>{loadingMessage}</p>
-                    : vehicles.length === 0
-                        ? <p>No vehicles found</p>
-                        : vehicles.map((vehicle) =>
-                            <p>{vehicle.v_name} {vehicle.v_brand}</p>
-                        )
+                <Table data={vehicles} />
             }
         </section>
     )
