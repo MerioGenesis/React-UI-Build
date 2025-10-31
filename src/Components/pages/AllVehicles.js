@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import API from '../api/API.js';
 import Panel from '../UI/Panel.js';
+import ObjectTable from '../UI/ObjectTable.js';
 
 
 
@@ -34,13 +35,9 @@ export default function AllVehicles() {
                     ? <p>{loadingMessage}</p>
                     : vehicles.length === 0
                         ? <p>No vehicles found</p>
-                        : <Panel.Container>
-                            {vehicles.map((vehicle) => (
-                                <Panel key={vehicle.v_id} title="All Cars" level={1}>
-                                    {/* content */}
-                                </Panel>
-                            ))}
-                        </Panel.Container>
+                        : vehicles.map((vehicle) =>
+                            <p>{vehicle.v_name} {vehicle.v_brand}</p>
+                        )
             }
         </section>
     )
