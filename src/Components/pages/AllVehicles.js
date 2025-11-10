@@ -8,10 +8,11 @@ import ObjectTable from '../UI/ObjectTable.js';
 
 export default function AllVehicles() {
     // Initialization ----------------------------
-    //const loggedinUserID = 25; //not implemented yet
+    const loggedinUserID = 25;
     const endpoint = `/vcharter/vehicles/`;
 
     // State -------------------------------------
+    const [user, setUser] = useState(null);
     const [vehicles, setVehicles] = useState([]);
     const [loadingMessage, setLoadingMessage] = useState('Loading records...');
 
