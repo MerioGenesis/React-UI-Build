@@ -1,12 +1,16 @@
-import React from "react";
-import "./Table.scss"
+import "./Table.scss";
 
-const Table = ({ data = [] }) => {
+const Table = ({ data = [], columns }) => {
     if (!data.length) {
         return <div>No data available</div>;
     }
 
-    const columns = Object.keys(data[0]);
+    const autoColumns = Object.keys(data[0]).map((key) => ({
+        key,
+        label: key
+    }));
+
+    const finalColumns = columns?.length ? columns : autoColumns;
 
     const isImage = (value) => {
         if (typeof value !== "string") return false;
@@ -20,20 +24,21 @@ const Table = ({ data = [] }) => {
         <table>
             <thead>
                 <tr>
-                    {columns.map((column) => (
-                        <th key={column}>{column}</th>
+                    {finalColumns.map((col) => (
+                        <th key={col.key}>{col.label}</th>
                     ))}
                 </tr>
             </thead>
+
             <tbody>
                 {data.map((row, id) => (
                     <tr key={id}>
-                        {columns.map((column) => {
-                            const value = row[column];
+                        {finalColumns.map((col) => {
+                            const value = row[col.key];
                             return (
-                                <td key={column}>
+                                <td key={col.key}>
                                     {isImage(value) ? (
-                                        <img src={value} alt={column} />
+                                        <img src={value} alt={col.label} />
                                     ) : (
                                         String(value ?? "")
                                     )}
